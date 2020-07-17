@@ -1,0 +1,19 @@
+<div
+    class="image-container"
+    {% if include.width %}
+        style="width: {{ include.width }}px"
+    {% endif %}
+    >
+    <img
+        src="{{ site.baseurl }}/assets/images/{{ include.src }}"
+        alt="{{ include.alt }}"
+        {% if include.ref %}
+            id="figure-{{ include.ref }}"
+        {% endif %}
+        >
+    {% if include.name %}
+        <div class="caption">
+            {{ include.name }}: {{ include.alt }}
+        </div>
+    {% endif %}
+</div>

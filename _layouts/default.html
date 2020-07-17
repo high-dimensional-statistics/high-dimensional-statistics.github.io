@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    {% include head.html %}
+    <body>
+        <!-- This input is here to make copying to clipboard work on iOS. -->
+        <input type="text" id="selection-dummy" style="display: none;" contenteditable="true" readonly="false">
+
+        <!-- Header and menu -->
+        <header class="centered">
+            <a href="{{ site.baseurl }}/" id="header-title">High-Dimensional Probability</a>
+            <nav id="menu"><!--
+                --><a id="menu-button" href="#"></a><!--
+                --><span><!--
+                    --><a href="{{ site.baseurl }}/">home</a><!--
+                    --><a href="{{ site.baseurl }}/posts-by-tag">posts by tag</a><!--
+                    --><a href="{{ site.baseurl }}/posts">posts</a><!--
+                    --><a href="{{ site.baseurl }}/about">about</a><!--
+                --></span><!--
+            --></nav>
+        </header>
+
+        <!-- Main content -->
+        <main class="centered">
+            <article>
+                {{ content }}
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <footer class="centered">
+            &copy; wesselb.github.io.
+            Powered by <a href="https://jekyllrb.com/">Jekyll</a>.
+            Icons by <a href="https://icons8.com">Icons8</a>.
+            <a href="{{ site.baseurl }}/feed.xml" id="feed-button">Feed</a>.
+        </footer>
+
+        {% include body_end.html %}
+    </body>
+</html>

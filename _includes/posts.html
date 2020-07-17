@@ -1,0 +1,16 @@
+<ul class="posts">
+    {% for post in site.posts %}
+        <!-- Filter by tag if a tag is given. -->
+        {% if include.tag %}
+            {% unless post.tags contains include.tag %}
+                {% continue %}
+            {% endunless %}
+        {% endif %}
+        <li>
+            <a class="post" href="{{ post.url | prepend:site.baseurl }}">
+                <date> {{ post.date | date: "%-d %B %Y" }} </date>
+                {{ post.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

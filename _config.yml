@@ -1,0 +1,21 @@
+title:            wesselb.github.io
+email:            wessel.p.bruinsma@gmail.com
+description:      Thoughts on machine learning and other topics
+url:              "https://wesselb.github.io"
+baseurl:          ""
+github_usename:   wesselb
+google_analytics: UA-93527056-1
+
+# Build settings
+highlighter: rouge
+markdown: kramdown
+plugins:
+    - jekyll-feed
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE.txt
+    - README.md
+    - link.py
+    - todo.tasks
+

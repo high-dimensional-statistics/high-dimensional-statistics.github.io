@@ -1,0 +1,30 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/icons8-infinity.png">
+
+    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}High-Dimensional Probability</title>
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/normalize.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/h5bp.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/solarized-light.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+    {% include preload_images.html %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/resolve_email.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/responsive.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/links.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/code_panes.js"></script>
+
+
+    <script type="text/javascript">
+        page_url = "{{ page.url | prepend: site.baseurl | prepend: site.url }}"
+    </script>
+
+    {% include mathjax.html %}
+</head>

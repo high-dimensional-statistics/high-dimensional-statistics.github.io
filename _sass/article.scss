@@ -1,0 +1,216 @@
+// Article styling
+article {
+    line-height: 2em;
+    text-align: left;
+
+    // Styling for pretitle text
+    .pretitle {
+        padding-top: .5em;
+        font-style: italic;
+    }
+
+    // Links
+    a {
+        color: $accent;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Date at the bottom
+    &>date {
+        margin-top: 2em;
+        color: $light;
+        display: block;
+    }
+
+    // Navigation at the bottom
+    &>nav {
+        margin-top: 2em;
+        overflow: hidden;
+        .prev { float: left; }
+        .next { float: right; }
+    }
+
+    // Make images 700px wide, centered, and scale them down as needed.
+    .image-container {
+        margin: 2em auto 2em auto;
+        max-width: 800px;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;  // IE8
+            display: block;
+            margin: 0 auto 0 auto;
+        }
+
+        .caption {
+            margin-top: 1em;
+        }
+    }
+
+    // Style headings.
+    h1, h2 {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    // Set font sizes of headings.
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.25em; }
+
+    // Increase spacing above each heading.
+    h2 { margin-top: 2em; }
+
+    // If the post doesnt start with a header, increase spacing after tags.
+    .tags + p { margin-top: 2em; }
+
+    // Source highlighting
+    div.highlight {
+        padding: 0;
+        margin: 0;
+        border-radius: 5px;
+    }
+    pre.highlight {
+        font-size: 0.9em;
+        padding: 1em;
+        border-radius: 5px;
+        line-height: 1.25em;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    // Share icons
+    h1, h2 {
+        // Increase width of header by 1.5em past 100%.
+        position: relative;
+        left: -25px;
+        width: calc(100% + 25px);
+        padding-left: 25px;
+
+        // Link icon
+        .link, .ok {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            background-position: 0 0;
+        }
+        .link { background-image: url(../images/icons8-link-grey.png); }
+        .ok {
+            top: -20px;
+            background-image: url(../images/icons8-ok.png);
+            opacity: 0;
+        }
+
+        // Make blue on hover.
+        &:hover {
+            cursor: pointer;
+            .link { background-image: url(../images/icons8-link-blue.png); }
+        }
+    }
+
+    // Code panes, colours from Solarized Light theme
+    .code-panes {
+        margin-bottom: calc(-2em + 2px);
+        margin-top: 2em;
+
+        // Pane buttons
+        a {
+            font-family: 'roboto condensed', sans-serif;
+            text-transform: lowercase;
+            text-decoration: none;
+            color: $light;
+            display: inline-block;
+            padding: 0 1em 0 1em;
+            background-color: #fdf6e3;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom: 1px solid #dedede;
+
+            // Spacing between buttons
+            &+a { margin-left: .5em; }
+
+            // Selection effect
+            &:hover, &.selected {
+                border-bottom: 1px solid #fdf6e3;
+                cursor: pointer;
+                color: $dark;
+                color: #586e75;
+            }
+        }
+    }
+
+    // Footnotes
+    .footnotes {
+        margin-top: 2em;
+
+        &:before {
+            content: "footnotes";
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    // Fix spacing in lists
+    ul p, ol p {
+        margin: 0;
+    }
+
+
+    // Tables
+    table {
+        margin: 2em auto 0 auto;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+
+        th { border-bottom: 1px solid black; }
+
+        th, td {
+            &:first-of-type { padding-left: .5em; }
+            &:last-of-type { padding-right: .5em; }
+        }
+
+        td + td, th + th {
+            padding-left: 1em;
+        }
+    }
+
+    .table-caption {
+        margin-top: 1em;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+}
+
+// Disqus thread
+#disqus_thread {
+    margin-top: 1em;
+}
+
+// Button that shows comments
+a.button {
+    background: #fff;
+    color: $light;
+    display: inline-block;
+    padding: 0 .5em 0 .5em;
+    border: 1px solid $light;
+    line-height: 1.5em;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 5px;
+
+    &:hover {
+        color: $dark;
+        background: $light;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,6 @@
+<!-- Preload icons from Icons8. -->
+{% for image in site.static_files %}
+    {% if image.path contains "assets/images/icons8-" %}
+        <link rel="preload" as="image" href="{{ site.baseurl }}{{ image.path }}">
+    {% endif %}
+{% endfor %}

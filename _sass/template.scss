@@ -1,0 +1,144 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: $dark;
+    background: #fff;
+}
+
+// Center stuff
+.centered {
+    max-width: calc(960px - 4em);
+    margin: 0 auto 0 auto;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+// Header
+header {
+    height: 2.25em;
+    font-family: 'roboto condensed', sans-serif;
+    text-transform: uppercase;
+    font-variant: small-caps;
+
+    &.centered {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+    position: relative;
+
+    // The text on the left
+    #header-title {
+        font-size: 1.5em;
+        line-height: 1.5em;
+        color: $dark;
+        text-decoration: none;
+        font-weight: bold;
+        &:hover { border-bottom: 3px solid $light; }
+    }
+
+    // Menu
+    nav {
+        position: absolute;
+        z-index: 1; // Make sure the menu appear on top of the tags.
+        top: 0;
+        right: 2em;
+        transition: width .2s ease-in .5s, height .2s ease-in .5s, background 0s ease .7s;
+        width: 2.25em;
+        direction: rtl;
+        text-align: right;
+        overflow: hidden;
+        height: 2.25em;
+        border-radius: 5px;
+
+        // Container of the menu entries
+        span {
+            direction: rtl;
+            position: absolute;
+            right: 0;
+            overflow: hidden;
+            top: 0;
+            display: inline-block;
+
+            // Menu entry
+            a {
+                text-decoration: none;
+                width: 11.5em;
+                font-size: 1.25em;
+                line-height: 1.8em;
+                height: 1.8em;
+                color: white;
+                text-align: left;
+                padding: 0 0 0 .5em;
+                &:hover {
+                    background: $light;
+                    color: $dark;
+                }
+
+                position: relative;
+                z-index: 3;
+            }
+        }
+
+        a {
+            display: inline-block;
+
+            // The burger menu button
+            &#menu-button {
+                background-image: url(../images/icons8-menu-blue.png);
+                background-repeat: no-repeat;
+                background-size: 1em 1em;
+                background-position: .625em .625em;
+                width: 2.25em;
+                height: 2.25em;
+                transition: background-image .1s ease .5s;
+
+                position: relative;
+                z-index: 2;
+
+                // This class is set dyamically
+                &.mouseover {
+                    transition: background-image .1s ease;
+                    background-image: url(../images/icons8-menu-white.png);
+                }
+            }
+        }
+
+        // This class is set dyamically
+        &.mouseover {
+            transition: width .1s ease-out, height .1s ease-out, background 0s;
+            background: $dark;
+            color: white;
+            width: 15em;
+            height: 9em;
+        }
+
+    }
+}
+
+// Footer
+footer {
+    &.centered {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+    color: $light;
+    a {
+        color: $light;
+        text-decoration: underline;
+        &:hover {
+            color: $dark;
+        }
+    }
+
+    // Feed button
+    #feed-button {
+        width: 1em;
+        height: 1em;
+        margin-left: .1em;
+        padding-left: 1.25em;
+        background-size: 1em 1em;
+        background-position: 0 .1em;
+        background-repeat: no-repeat;
+        background-image: url(../images/icons8-rss-grey.png);
+        &:hover { background-image: url(../images/icons8-rss-blue.png); }
+    }
+}

@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<h1> {{ page.title }} </h1>
+<p class="tags">
+    {% assign sorted_tags = page.tags | sort %}
+    {% for tag in sorted_tags %}
+        <a href="{{ site.baseurl }}/posts-by-tag#{{ tag | cgi_escape }}" class="tag">{{ tag }}</a>
+    {% endfor %}
+</p>
+{{ content }}
+
+{% if page.previous.url or page.next.url %}
+    <nav>
+        {% if page.previous.url %}
+            <div class="prev"><a href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a></div>
+        {% endif %}
+        {% if page.next.url %}
+            <div class="next"><a href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a></div>
+        {% endif %}
+    </nav>
+{% endif %}
+
+<date>
+    Published on {{ page.date | date: "%-d %B %Y" }}.
+    {% if page.date-edited %}
+        Last edited on {{ page.date-edited | date: "%-d %B %Y" }}.
+    {% endif %}
+</date>
+
+{% if page.comments %}
+    {% unless jekyll.environment == "production" %}
+        {% assign postfix = "/development" %}
+    {% endunless %}
+    <div id="disqus_thread">
+        <a href="#" class="button" onclick="enable_disqus()" id="enable-disqus-button">show comments</a>
+    </div>
+    <script type="text/javascript">
+        var disqus_config = function() {
+            this.page.url = 'https://wesselb.github.io{{ page.url }}{{ postfix }}';
+            this.page.identifier = '{{ page.id }}{{ postfix }}';
+        };
+        enable_disqus = function() {
+            var d = document;
+            s = d.createElement('script');
+            s.src = '//wesselb.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            $('#enable-disqus-button').css('display', 'none');
+        }
+    </script>
+    <noscript>
+        Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript" rel="nofollow">Disqus.</a>
+    </noscript>
+{% endif %}

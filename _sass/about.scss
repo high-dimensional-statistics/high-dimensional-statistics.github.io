@@ -1,0 +1,49 @@
+article {
+    // Image and buttons on the right
+    aside {
+        display: block;
+        text-align: center;
+        margin: .5em 0 1em 2em;
+        padding: 0;
+        float: right;
+        width: 14.5em;
+
+        // Scale down a bit on small screens.
+        @media only screen and (max-width: 600px) { font-size: 0.8em; }
+
+        // Image
+        img {
+            width: 14.5em;
+            margin: 0;
+            margin-top: 1em;
+        }
+
+        // A button to a service
+        a {
+            display: inline-block;
+            height: 2em;
+            width: 2.5em;
+            border-radius: 5px;
+            background-size: 1.5em 1.5em;
+            background-position: 0.5em 0.25em;
+            background-repeat: no-repeat;
+            background-color: $dark;
+            &:hover { background-color: $light; }
+
+            // Spacing between buttons
+            &+a { margin-left: .5em; }
+
+            // Background images
+            &#cv { background-image: url($baseurl + "/assets/images/icons8-cv-white.png");
+                   &:hover { background-image: url($baseurl + "/assets/images/icons8-cv-blue.png"); } }
+            &#mail { background-image: url($baseurl + "/assets/images/icons8-mail-white.png");
+                   &:hover { background-image: url($baseurl + "/assets/images/icons8-mail-blue.png"); } }
+            &#scholar { background-image: url($baseurl + "/assets/images/icons8-scholar-white.png");
+                   &:hover { background-image: url($baseurl + "/assets/images/icons8-scholar-blue.png"); } }
+            &#github { background-image: url($baseurl + "/assets/images/icons8-github-white.png");
+                   &:hover { background-image: url($baseurl + "/assets/images/icons8-github-blue.png"); } }
+            &#linkedin { background-image: url($baseurl + "/assets/images/icons8-linkedin-white.png");
+                   &:hover { background-image: url($baseurl + "/assets/images/icons8-linkedin-blue.png"); } }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+{% if jekyll.environment == "production" %}
+    {% include google_analytics.html %}
+{% else %}
+    <!-- Google analytics is only enabled for production. -->
+{% endif %}
