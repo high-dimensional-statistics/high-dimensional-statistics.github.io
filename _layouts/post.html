@@ -37,13 +37,13 @@ layout: default
     </div>
     <script type="text/javascript">
         var disqus_config = function() {
-            this.page.url = 'https://wesselb.github.io{{ page.url }}{{ postfix }}';
+            this.page.url = 'https://wesselb.github.io/high-dimensional-probability/{{ page.url }}{{ postfix }}';
             this.page.identifier = '{{ page.id }}{{ postfix }}';
         };
         enable_disqus = function() {
             var d = document;
             s = d.createElement('script');
-            s.src = '//wesselb.disqus.com/embed.js';
+            s.src = '//high-dimensional-probability.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
             $('#enable-disqus-button').css('display', 'none');
