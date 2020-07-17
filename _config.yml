@@ -1,7 +1,7 @@
-title:            wesselb.github.io
+title:            High-Dimensional Probability
 email:            wessel.p.bruinsma@gmail.com
-description:      Thoughts on machine learning and other topics
-url:              "https://wesselb.github.io"
+description:      Solutions for exercises from High-Dimensional Probability by Martin. J. Wainwright
+url:              "https://wesselb.github.io/high-dimensional-probability/"
 baseurl:          ""
 github_usename:   wesselb
 google_analytics: UA-93527056-1
