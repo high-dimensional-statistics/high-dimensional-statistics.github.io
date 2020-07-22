@@ -1,3 +1,3 @@
-# wesselb.github.io/high-dimensional-probability
+# high-dimensional-probability.github.io
 
-See [here](https://wesselb.github.io/high-dimensional-probability).
+See [here](https://high-dimensional-probability.github.io/).
