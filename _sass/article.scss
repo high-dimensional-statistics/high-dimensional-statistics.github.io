@@ -9,6 +9,11 @@ article {
         font-style: italic;
     }
 
+    // Accent something
+    .accent {
+        color: $accent;
+    }
+
     // Links
     a {
         color: $accent;
