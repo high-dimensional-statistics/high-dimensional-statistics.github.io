@@ -1,5 +1,7 @@
 ---
 layout: default
+# Previous and next post inspired by
+#   https://talk.jekyllrb.com/t/how-to-link-to-next-and-previous-posts-for-same-blog-category/629/2.
 ---
 <h1> {{ page.title }} </h1>
 <p class="tags">
@@ -10,13 +12,31 @@ layout: default
 </p>
 {{ content }}
 
-{% if page.previous.url or page.next.url %}
+{% assign sorted_posts = site.posts | sort: "title" %}
+
+{% for post in sorted_posts %}
+    {% if post.url == page.url %}
+        {% assign index_prev = forloop.index0 %}
+        {% assign index_next = forloop.index %}
+    {% endif %}
+{% endfor %}
+
+{% for post in sorted_posts %}
+    {% if index_prev == forloop.index %}
+        {% assign post_prev = post %}
+    {% endif %}
+    {% if index_next == forloop.index0 %}
+        {% assign post_next = post %}
+    {% endif %}
+{% endfor %}
+
+{% if post_prev or post_next %}
     <nav>
-        {% if page.previous.url %}
-            <div class="prev"><a href="{{ site.baseurl }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a></div>
+        {% if post_prev.url %}
+            <div class="prev"><a href="{{ site.baseurl }}{{ post_prev.url }}">&laquo; {{ post_prev.title }}</a></div>
         {% endif %}
-        {% if page.next.url %}
-            <div class="next"><a href="{{ site.baseurl }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a></div>
+        {% if post_next.url %}
+            <div class="next"><a href="{{ site.baseurl }}{{ post_next.url }}">{{ post_next.title }} &raquo;</a></div>
         {% endif %}
     </nav>
 {% endif %}
