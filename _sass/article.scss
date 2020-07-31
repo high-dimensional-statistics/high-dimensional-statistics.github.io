@@ -9,6 +9,11 @@ article {
         font-style: italic;
     }
 
+    // Accent something
+    .accent {
+        color: $accent;
+    }
+
     // Links
     a {
         color: $accent;
@@ -196,6 +201,15 @@ article {
         margin: 0;
         padding: 0 10px 0 10px;
         border-radius: 5px;
+
+        // Display math at the end of a blockquote needs extra spacing!
+        p {
+            div:last-of-type {
+                &.MathJax_Display {
+                    padding-bottom: 5px;
+                }
+            }
+        }
     }
 }
 

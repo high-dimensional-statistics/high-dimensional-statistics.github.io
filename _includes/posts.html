@@ -1,5 +1,6 @@
+{% assign sorted_posts = site.posts | sort: "title" %}
 <ul class="posts">
-    {% for post in site.posts %}
+    {% for post in sorted_posts %}
         <!-- Filter by tag if a tag is given. -->
         {% if include.tag %}
             {% unless post.tags contains include.tag %}
