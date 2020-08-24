@@ -5,7 +5,7 @@ title:      "Home"
 ---
 
 Hello! Our names are Jiri and Wessel.
-On this blog, we will post our or others' solutions to the exercises from [_High-Dimensional Probability: A Non-Asymptotic Viewpoint_](https://www.cambridge.org/core/books/highdimensional-statistics/8A91ECEEC38F46DAB53E9FF8757C7A4E)
+On this blog, we will post our or others' solutions to the exercises from [_High-Dimensional Statistics: A Non-Asymptotic Viewpoint_](https://www.cambridge.org/core/books/highdimensional-statistics/8A91ECEEC38F46DAB53E9FF8757C7A4E)
 by [Martin J. Wainwright](https://people.eecs.berkeley.edu/~wainwrig).
 Find out more about us [here]({{ site.baseurl }}/about).
 
