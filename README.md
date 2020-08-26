@@ -1,3 +1,3 @@
-# high-dimensional-probability.github.io
+# high-dimensional-statistics.github.io
 
-See [here](https://high-dimensional-probability.github.io/).
+See [here](https://high-dimensional-statistics.github.io/).

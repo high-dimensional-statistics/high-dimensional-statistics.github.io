@@ -1,8 +1,8 @@
-title:            High-Dimensional Probability
+title:            High-Dimensional Statistics
 email:            wessel.p.bruinsma@gmail.com
-description:      Solutions for exercises from High-Dimensional Probability by Martin. J. Wainwright
-url:              "https://high-dimensional-probability.github.io/"
-baseurl:          
+description:      Solutions for exercises from High-Dimensional Statistics by Martin. J. Wainwright
+url:              "https://high-dimensional-statistics.github.io/"
+baseurl:
 github_usename:   wesselb
 google_analytics: UA-93527056-2
 
