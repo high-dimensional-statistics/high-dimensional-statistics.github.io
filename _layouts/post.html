@@ -12,7 +12,7 @@ layout: default
 </p>
 {{ content }}
 
-{% assign sorted_posts = site.posts | sort: "title" %}
+{% assign sorted_posts = site.posts | sort: "sorting_tag" %}
 
 {% for post in sorted_posts %}
     {% if post.url == page.url %}

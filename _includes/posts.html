@@ -1,4 +1,4 @@
-{% assign sorted_posts = site.posts | sort: "title" %}
+{% assign sorted_posts = site.posts | sort: "sorting_tag" %}
 <ul class="posts">
     {% for post in sorted_posts %}
         <!-- Filter by tag if a tag is given. -->
