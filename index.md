@@ -14,7 +14,49 @@ You can purchase the book [here](https://www.cambridge.org/core/books/highdimens
 or gain access [here](https://idiscover.lib.cam.ac.uk/permalink/f/1ii55o6/44CAM_ALMA51577318610003606)
 if you are a student at the University of Cambridge.
 
+## Tags
 
-## Posts
+<!-- Capture all tags. -->
+{% capture tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tags = tags | split: ',' | sort %}
 
-{% include posts.html %}
+<p class="tags">
+    <!-- Print tags associated to chapters. -->
+    {% for i in (0..site.tags.size) %}{% unless forloop.last
+        %}{% assign tag = tags[i]
+        %}{% assign tag_start = tag | slugify | slice: 0, 8
+        %}{% if tag_start == "chapter-" %}{% else %}{% continue %}{% endif
+        %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
+            <span class="count">({{ site.tags[tag].size }})</span>
+        </a>{{ ""
+    }}{% endunless %}{% endfor %}
+    <!-- Print other tags. -->
+    {% for i in (0..site.tags.size) %}{% unless forloop.last
+        %}{% assign tag = tags[i]
+        %}{% assign tag_start = tag | slugify | slice: 0, 8
+        %}{% if tag_start == "chapter-" %}{% continue %}{% else %}{% endif
+        %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
+            <span class="count">({{ site.tags[tag].size }})</span>
+        </a>{{ ""
+    }}{% endunless %}{% endfor %}
+</p>
+
+<!-- Print sections associated to chapter tags. -->
+{% for tag in tags %}
+    {% assign tag_start = tag | slugify | slice: 0, 8 %}
+    {% if tag_start == "chapter-" %}{% else %}{% continue %}{% endif %}
+    {% assign words = tag | split: ' ' %}
+    {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+<h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>
+    {% include posts.html tag=tag %}
+{% endfor %}
+
+<!-- Print sections associated to other tags. -->
+{% for tag in tags %}
+    {% assign tag_start = tag | slugify | slice: 0, 8 %}
+    {% if tag_start == "chapter-" %}{% continue %}{% else %}{% endif %}
+    {% assign words = tag | split: ' ' %}
+    {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+<h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>
+    {% include posts.html tag=tag %}
+{% endfor %}
