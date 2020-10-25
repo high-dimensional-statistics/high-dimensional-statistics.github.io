@@ -125,4 +125,13 @@ $(document).ready(function() {
             shareLink(page_url + "#" + el.id, ok)
         })
     })
+
+    $("h3").each(function(i, el) {
+        var ok = createLinkAndOK(el)
+
+        // Share on click.
+        $(el).click(function() {
+            shareLink(page_url + "#" + el.id, ok)
+        })
+    })
 })

@@ -58,7 +58,7 @@ article {
     }
 
     // Style headings.
-    h1, h2 {
+    h1, h2, h3 {
         font-family: 'Roboto Condensed', sans-serif;
         font-weight: bold;
         text-transform: uppercase;
@@ -67,9 +67,11 @@ article {
     // Set font sizes of headings.
     h1 { font-size: 2em; }
     h2 { font-size: 1.25em; }
+    h3 { font-size: 1.125em; }
 
     // Increase spacing above each heading.
     h2 { margin-top: 2em; }
+    h3 { margin-top: 1em; }
 
     // If the post doesnt start with a header, increase spacing after tags.
     .tags + p { margin-top: 2em; }
@@ -90,7 +92,7 @@ article {
     }
 
     // Share icons
-    h1, h2 {
+    h1, h2, h3 {
         // Increase width of header by 1.5em past 100%.
         position: relative;
         left: -25px;
