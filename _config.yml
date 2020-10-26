@@ -19,3 +19,8 @@ exclude:
     - link.py
     - todo.tasks
 
+# References
+textcite:
+    dudley: "[Dudley (2002)](https://doi.org/10.1017/CBO9780511755347)"
+parencite:
+    dudley: "[(Dudley, 2002)](https://doi.org/10.1017/CBO9780511755347)"
