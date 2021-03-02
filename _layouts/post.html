@@ -7,7 +7,7 @@ layout: default
 <p class="tags">
     {% assign sorted_tags = page.tags | sort %}
     {% for tag in sorted_tags %}
-        <a href="{{ site.baseurl }}/posts-by-tag#{{ tag | cgi_escape }}" class="tag">{{ tag }}</a>
+        <a href="{{ site.baseurl }}/#{{ tag | cgi_escape }}" class="tag">{{ tag }}</a>
     {% endfor %}
 </p>
 {{ content }}
