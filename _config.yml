@@ -9,6 +9,8 @@ google_analytics: UA-93527056-2
 # Build settings
 highlighter: rouge
 markdown: kramdown
+kramdown:
+    math_engine: nil
 plugins:
     - jekyll-feed
 exclude:
