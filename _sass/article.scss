@@ -159,6 +159,14 @@ article {
         }
     }
 
+    // Make scrollable boxes for overflowing equations.
+    mjx-container[jax="SVG"] {
+        overflow-x: auto;
+        overflow-y: hidden;  // Should never overflow.
+        direction: ltr;
+        min-width: auto !important;
+    }
+
     // Footnotes
     .footnotes {
         margin-top: 2em;
