@@ -10,7 +10,7 @@ google_analytics: UA-93527056-2
 highlighter: rouge
 markdown: kramdown
 kramdown:
-    math_engine: nil
+    math_engine: null
 plugins:
     - jekyll-feed
 exclude:
