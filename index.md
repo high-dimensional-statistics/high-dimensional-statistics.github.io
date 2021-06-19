@@ -18,14 +18,25 @@ if you are a student at the University of Cambridge.
 
 <!-- Capture all tags. -->
 {% capture tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
-{% assign tags = tags | split: ',' | sort %}
+{% assign tags = tags | split: ',' | sort_natural %}
 
 <p class="tags">
-    <!-- Print tags associated to chapters. -->
+    <!-- Print tags associated to chapters 2-9. -->
     {% for i in (0..site.tags.size) %}{% unless forloop.last
         %}{% assign tag = tags[i]
         %}{% assign tag_start = tag | slugify | slice: 0, 8
+        %}{% assign tag_start2 = tag | slugify | slice: 0, 9
         %}{% if tag_start == "chapter-" %}{% else %}{% continue %}{% endif
+        %}{% if tag_start2 == "chapter-1" %}{% continue %}{% endif
+        %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
+            <span class="count">({{ site.tags[tag].size }})</span>
+        </a>{{ ""
+    }}{% endunless %}{% endfor %}
+    <!-- Print tags associated to chapters 10+. -->
+    {% for i in (0..site.tags.size) %}{% unless forloop.last
+        %}{% assign tag = tags[i]
+        %}{% assign tag_start = tag | slugify | slice: 0, 9
+        %}{% if tag_start == "chapter-1" %}{% else %}{% continue %}{% endif
         %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
             <span class="count">({{ site.tags[tag].size }})</span>
         </a>{{ ""
@@ -34,17 +45,29 @@ if you are a student at the University of Cambridge.
     {% for i in (0..site.tags.size) %}{% unless forloop.last
         %}{% assign tag = tags[i]
         %}{% assign tag_start = tag | slugify | slice: 0, 8
-        %}{% if tag_start == "chapter-" %}{% continue %}{% else %}{% endif
+        %}{% if tag_start == "chapter-" %}{% continue %}{% endif
         %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
             <span class="count">({{ site.tags[tag].size }})</span>
         </a>{{ ""
     }}{% endunless %}{% endfor %}
 </p>
 
-<!-- Print sections associated to chapter tags. -->
+<!-- Print sections associated to chapters 2–9 tags. -->
 {% for tag in tags %}
     {% assign tag_start = tag | slugify | slice: 0, 8 %}
+    {% assign tag_start2 = tag | slugify | slice: 0, 9 %}
     {% if tag_start == "chapter-" %}{% else %}{% continue %}{% endif %}
+    {% if tag_start2 == "chapter-1" %}{% continue %}{% else %}{% endif %}
+    {% assign words = tag | split: ' ' %}
+    {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+<h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>
+    {% include posts.html tag=tag %}
+{% endfor %}
+
+<!-- Print sections associated to chapters 10+ tags. -->
+{% for tag in tags %}
+    {% assign tag_start = tag | slugify | slice: 0, 9 %}
+    {% if tag_start == "chapter-1" %}{% else %}{% continue %}{% endif %}
     {% assign words = tag | split: ' ' %}
     {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 <h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>

@@ -1,7 +1,6 @@
 # Jekyll stuff
 .sass-cache
 _site
-Gemfile.lock
 
 ### LaTeX: (https://raw.githubusercontent.com/github/gitignore/master/TeX.gitignore)
 ## Core latex/pdflatex auxiliary files:

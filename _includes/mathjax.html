@@ -1,13 +1,17 @@
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        TeX: {
-            equationNumbers: {
-                autoNumber: "all"
-            },
-            Macros: {
+<script type="text/javascript">
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['$$', '$$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            packages: {'[+]': ['ams']},
+            tags: 'all',
+            macros: {
                 Ab: '\\mathbb{A}',
+                Bb: '\\mathbb{B}',
                 C: '\\mathbb{C}',
                 E: '\\mathbb{E}',
+                Ec: '\\mathcal{E}',
+                G: '\\mathcal{G}',
                 Hb: '\\mathbb{H}',
                 N: '\\mathbb{N}',
                 P: '\\mathbb{P}',
@@ -15,11 +19,14 @@
                 R: '\\mathbb{R}',
                 Rc: '\\mathcal{R}',
                 V: '\\mathbb{V}',
+                Var: '\\mathbb{V}',
                 c: '\\textsf{c}',
                 T: '\\textsf{T}',
+                Tb: '\\mathbb{T}',
                 F: '\\mathcal{F}',
                 X: '\\mathcal{X}',
                 S: '\\mathcal{S}',
+                Sb: '\\mathbb{S}',
                 radcomp: '\\mathcal{R}',
                 disteq: '\\overset{\\text{d}}{=}',
                 sd: '\\text{d}',
@@ -31,8 +38,10 @@
                 cond: '\\,|\\,',
                 given: '\\,|\\,',
                 sub: '\\subseteq',
-                symdif: '\\Delta',  // \triangle doesn't look very nice
+                had: '\\circ',
+                symdif: '\\Delta',   // \triangle doesn't look very nice
                 diag: '\\operatorname{diag}',
+                col: '\\operatorname{col}',
                 tr: '\\operatorname{tr}',
                 det: '\\operatorname{det}',
                 rank: '\\operatorname{rank}',
@@ -42,6 +51,7 @@
                 Normal: '\\mathcal{N}',
                 ber: '\\operatorname{Ber}',
                 Ber: '\\operatorname{Ber}',
+                Rad: '\\operatorname{Rad}',
                 Beta: '\\operatorname{Beta}',
                 Binom: '\\operatorname{Binom}',
                 Unif: '\\operatorname{Unif}',
@@ -49,8 +59,6 @@
                 SG: '\\operatorname{SG}',
                 sign: '\\operatorname{sign}',
                 card: '\\operatorname{card}',
-                // ll: '\\left\\langle',  conflicts with absolute continuity
-                // rr: '\\right\\rangle',
                 fp: '\\operatorname{fp}',
                 argmin: '\\operatorname{argmin}',
                 argmax: '\\operatorname{argmax}',
@@ -63,9 +71,11 @@
                 parens: ['\\left(#1\\right)', 1],
                 sbrac: ['\\left[#1\\right]', 1],
                 norm: ['\\|#1\\|', 1],
-                lra: ['\\left\\langle #1 \\right\\rangle', 1],
+                lra: ['\\left\\langle #1 \\right\\rangle', 1]
             }
         }
-    });
+    };
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>

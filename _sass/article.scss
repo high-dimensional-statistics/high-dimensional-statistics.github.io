@@ -15,6 +15,10 @@ article {
     }
 
     // Links
+    mjx-container[jax="SVG"] > svg a {
+        fill: $accent;
+        stroke: $accent;
+    }
     a {
         color: $accent;
         text-decoration: none;
@@ -153,6 +157,14 @@ article {
                 color: #586e75;
             }
         }
+    }
+
+    // Make scrollable boxes for overflowing equations.
+    mjx-container[jax="SVG"] {
+        overflow-x: auto;
+        overflow-y: hidden;  // Should never overflow.
+        direction: ltr;
+        min-width: auto !important;
     }
 
     // Footnotes
