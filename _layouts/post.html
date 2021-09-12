@@ -52,22 +52,17 @@ layout: default
     {% unless jekyll.environment == "production" %}
         {% assign postfix = "/development" %}
     {% endunless %}
-    <div id="disqus_thread">
-        <a href="#" class="button" onclick="enable_disqus()" id="enable-disqus-button">show comments</a>
-    </div>
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_config = function() {
             this.page.url = 'https://high-dimensional-statistics.github.io{{ page.url }}{{ postfix }}';
             this.page.identifier = '{{ page.id }}{{ postfix }}';
         };
-        enable_disqus = function() {
-            var d = document;
-            s = d.createElement('script');
-            s.src = 'https://high-dimensional-statistics.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            $('#enable-disqus-button').css('display', 'none');
-        }
+        var d = document;
+        s = d.createElement('script');
+        s.src = 'https://high-dimensional-statistics.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     </script>
     <noscript>
         Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript" rel="nofollow">Disqus.</a>

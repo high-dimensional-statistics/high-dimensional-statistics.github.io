@@ -21,6 +21,14 @@ if you are a student at the University of Cambridge.
 {% assign tags = tags | split: ',' | sort_natural %}
 
 <p class="tags">
+    <!-- Print general tag first. -->
+    {% for i in (0..site.tags.size) %}{% unless forloop.last
+        %}{% assign tag = tags[i]
+        %}{% if tag == "general" %}{% else %}{% continue %}{% endif
+        %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
+            <span class="count">({{ site.tags[tag].size }})</span>
+        </a>{{ ""
+    }}{% endunless %}{% endfor %}
     <!-- Print tags associated to chapters 2-9. -->
     {% for i in (0..site.tags.size) %}{% unless forloop.last
         %}{% assign tag = tags[i]
@@ -46,11 +54,21 @@ if you are a student at the University of Cambridge.
         %}{% assign tag = tags[i]
         %}{% assign tag_start = tag | slugify | slice: 0, 8
         %}{% if tag_start == "chapter-" %}{% continue %}{% endif
+        %}{% if tag == "general" %}{% continue %}{% endif
         %}<a href="#{{ tag | cgi_escape }}" class="tag">{{ tag }}
             <span class="count">({{ site.tags[tag].size }})</span>
         </a>{{ ""
     }}{% endunless %}{% endfor %}
 </p>
+
+<!-- Print general section. -->
+{% for tag in tags %}
+    {% if tag == "general" %}{% else %}{% continue %}{% endif %}
+    {% assign words = tag | split: ' ' %}
+    {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+<h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>
+    {% include posts.html tag=tag %}
+{% endfor %}
 
 <!-- Print sections associated to chapters 2–9 tags. -->
 {% for tag in tags %}
@@ -78,6 +96,7 @@ if you are a student at the University of Cambridge.
 {% for tag in tags %}
     {% assign tag_start = tag | slugify | slice: 0, 8 %}
     {% if tag_start == "chapter-" %}{% continue %}{% else %}{% endif %}
+    {% if tag == "general" %}{% continue %}{% else %}{% endif %}
     {% assign words = tag | split: ' ' %}
     {% capture tag_titled %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 <h2 id="{{ tag | cgi_escape }}">{{ tag_titled }}</h2>
